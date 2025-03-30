@@ -744,6 +744,7 @@ pub enum OperatingSystem {
     WasiP2,
     WatchOS(Option<DeploymentTarget>),
     Windows,
+    Zkvm,
     /// An alternate name for [visionOS][Self::VisionOS].
     XROS(Option<DeploymentTarget>),
 }
@@ -806,6 +807,7 @@ impl OperatingSystem {
             WasiP2 => Cow::Borrowed("wasip2"),
             WatchOS(deployment_target) => darwin_version("watchos", deployment_target),
             Windows => Cow::Borrowed("windows"),
+            Zkvm => Cow::Borrowed("zkvm"),
             XROS(deployment_target) => darwin_version("xros", deployment_target),
         }
     }
@@ -1655,6 +1657,7 @@ impl FromStr for OperatingSystem {
             "wasip2" => WasiP2,
             "windows" => Windows,
             "espidf" => Espidf,
+            "zkvm" => Zkvm,
             _ => return Err(()),
         })
     }

@@ -16,6 +16,7 @@
     )
 )]
 #![cfg_attr(not(feature = "std"), no_std)]
+#![allow(unexpected_cfgs)]
 
 #[cfg(not(feature = "std"))]
 extern crate alloc;
